@@ -2,6 +2,7 @@ require 'weighted_graph/version'
 
 # A simple graph with weighted edges
 module WeightedGraph
+  # Graph API
   class Graph
     def initialize(edges = Hash.new(0))
       @edges = edges
@@ -15,8 +16,12 @@ module WeightedGraph
       end
     end
 
+    def contains_edge?(source, destination)
+      @edges.key?(source) && @edges[source].key?(destination)
+    end
+
     def get_edge_weight(source, destination)
-      if @edges.key?(source) && @edges[source].key?(destination)
+      if contains_edge?(source, destination)
         @edges[source][destination]
       else
         Float::INFINITY
