@@ -16,6 +16,10 @@ module WeightedGraph
       end
     end
 
+    def remove_edge(source, destination)
+      @edges[source].delete(destination) if @edges.key?(source)
+    end
+
     def contains_edge?(source, destination)
       @edges.key?(source) && @edges[source].key?(destination)
     end
