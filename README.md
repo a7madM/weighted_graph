@@ -1,9 +1,31 @@
-# WeightedGraph
+# weighted_graph
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/weighted_graph`. To experiment with that code, run `bin/console` for an interactive prompt.
+weighted_graph is a simple Ruby library for working on graphs with weighted edges.
 
-TODO: Delete this and the text above, and describe your gem
+## WeightedGraph::Graph API
 
+```ruby
+# Add directed edge (source, destination) to the graph with given weight
+add_edge(source, destination, weight)
+
+# Add undirected edge (vertex_a, vertex_b) to the graph with given weight
+add_undirected_edge(vertex_a, vertex_b, weight)
+
+# Remove directed edge (source, destination) from the graph
+remove_edge(source, destination)
+
+# Remove undirected edge (vertex_a, vertex_b) from the graph
+remove_undirected_edge(vertex_a, vertex_b)
+
+# Return true iff the graph contains directed edge (source, destination)
+contains_edge?(source, destination)
+
+# Returns the weight of directed edge (source, destination),
+# or returns Float::INFINITY if no such edge exists
+get_edge_weight(source, destination)
+```
+
+<!-- TODO: Add installation section after publishing the gem.
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -12,30 +34,18 @@ Add this line to your application's Gemfile:
 gem 'weighted_graph'
 ```
 
-And then execute:
-
-    $ bundle
-
 Or install it yourself as:
 
-    $ gem install weighted_graph
-
-## Usage
-
-TODO: Write usage instructions here
+    $ gem install weighted_graph -->
 
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/weighted_graph.
-
+Bug reports and pull requests are welcome on GitHub at https://github.com/msayson/weighted_graph.
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-

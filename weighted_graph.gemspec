@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.summary       = 'A simple weighted graph implementation.'
   spec.description   = 'A simple weighted graph implementation that stores ' \
                        'edges in an adjacency list.'
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = 'https://github.com/msayson/weighted_graph'
   spec.license       = 'MIT'
 
   # Prevent pushing this gem to RubyGems.org.
