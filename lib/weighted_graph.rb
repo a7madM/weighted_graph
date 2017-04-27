@@ -16,8 +16,18 @@ module WeightedGraph
       end
     end
 
+    def add_undirected_edge(vertex_a, vertex_b, weight)
+      add_edge(vertex_a, vertex_b, weight)
+      add_edge(vertex_b, vertex_a, weight)
+    end
+
     def remove_edge(source, destination)
       @edges[source].delete(destination) if @edges.key?(source)
+    end
+
+    def remove_undirected_edge(vertex_a, vertex_b)
+      remove_edge(vertex_a, vertex_b)
+      remove_edge(vertex_b, vertex_a)
     end
 
     def contains_edge?(source, destination)
