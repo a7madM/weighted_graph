@@ -28,7 +28,6 @@ get_edge_weight(source, destination)
 get_adjacent_vertices(source)
 ```
 
-<!-- TODO: Add installation section after publishing the gem.
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -37,9 +36,17 @@ Add this line to your application's Gemfile:
 gem 'weighted_graph'
 ```
 
-Or install it yourself as:
+Then you can require the gem in Ruby programs:
 
-    $ gem install weighted_graph -->
+```ruby
+require 'weighted_graph'
+
+def myMethod()
+  graph = WeightedGraph::Graph.new
+  graph.add_edge('Vancouver', 'Port Coquitlam', 28)
+  # ...
+end
+```
 
 ## Development
 
