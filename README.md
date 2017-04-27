@@ -23,6 +23,9 @@ contains_edge?(source, destination)
 # Returns the weight of directed edge (source, destination),
 # or returns Float::INFINITY if no such edge exists
 get_edge_weight(source, destination)
+
+# Returns the set of vertices v_i where edge (source, v_i) is in the graph
+get_adjacent_vertices(source)
 ```
 
 <!-- TODO: Add installation section after publishing the gem.

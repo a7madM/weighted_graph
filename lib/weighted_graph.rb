@@ -1,3 +1,4 @@
+require 'set'
 require 'weighted_graph/version'
 
 # A simple graph with weighted edges
@@ -48,6 +49,15 @@ module WeightedGraph
       else
         Float::INFINITY
       end
+    end
+
+    # Returns the set of vertices v_i where edge (source, v_i) is in the graph
+    def get_adjacent_vertices(source)
+      adjacent_array = []
+      if @edges.key?(source)
+        adjacent_array = @edges[source].map { |dst, _weight| dst }
+      end
+      Set.new(adjacent_array)
     end
   end
 end

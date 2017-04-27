@@ -9,6 +9,7 @@ module WeightedGraph
     it { is_expected.to respond_to(:remove_undirected_edge).with(2).arguments }
     it { is_expected.to respond_to(:contains_edge?).with(2).arguments }
     it { is_expected.to respond_to(:get_edge_weight).with(2).arguments }
+    it { is_expected.to respond_to(:get_adjacent_vertices).with(1).argument }
 
     before do
       @graph = WeightedGraph::Graph.new
@@ -91,6 +92,25 @@ module WeightedGraph
         @graph.add_edge('A', 'B', 5)
         @graph.remove_edge('A', 'B')
         expect(@graph.get_edge_weight('A', 'B')).to eq(Float::INFINITY)
+      end
+    end
+
+    describe '.get_adjacent_vertices' do
+      it 'returns an empty set for vertices without outgoing edges' do
+        @graph.add_edge('A', 'B', 12)
+        expect(@graph.get_adjacent_vertices('B').empty?).to be true
+        expect(@graph.get_adjacent_vertices('C').empty?).to be true
+      end
+      it 'returns all endpoints of outgoing edges' do
+        @graph.add_edge('A', 'B', 12)
+        @graph.add_edge('A', 'C', 3)
+        @graph.add_edge('B', 'C', 5)
+
+        adjacent_set = @graph.get_adjacent_vertices('A')
+        expect(adjacent_set.size).to eq(2)
+        expect(adjacent_set.include?('B')).to be true
+        expect(adjacent_set.include?('C')).to be true
+        expect(adjacent_set.include?('A')).to be false
       end
     end
   end
