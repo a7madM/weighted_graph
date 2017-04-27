@@ -28,6 +28,20 @@ get_edge_weight(source, destination)
 get_adjacent_vertices(source)
 ```
 
+## WeightedGraph::PositiveWeightedGraph API
+
+WeightedGraph::PositiveWeightedGraph extends WeightedGraph::Graph and shares its behaviour, with the following differences:
+
+```ruby
+# Add directed edge (source, destination) to the graph with given weight
+# Requires that weight is a positive number
+add_edge(source, destination, weight)
+
+# Add undirected edge (vertex_a, vertex_b) to the graph with given weight
+# Requires that weight is a positive number
+add_undirected_edge(vertex_a, vertex_b, weight)
+```
+
 ## Installation
 
 Add this line to your application's Gemfile:
