@@ -50,16 +50,28 @@ Add this line to your application's Gemfile:
 gem 'weighted_graph'
 ```
 
-Then you can require the gem in Ruby programs:
+## Usage
 
 ```ruby
 require 'weighted_graph'
 
-def myMethod()
-  graph = WeightedGraph::Graph.new
-  graph.add_edge('Vancouver', 'Port Coquitlam', 28)
-  # ...
-end
+graph = WeightedGraph::Graph.new
+graph.add_undirected_edge('Burnaby', 'Vancouver', 10)
+graph.add_edge('Burnaby', 'Port Coquitlam', 23)
+graph.add_edge('Vancouver', 'Langley', 37)
+graph.add_undirected_edge('Langley', 'Port Coquitlam', 35)
+
+adj_cities_to_van = graph.get_adjacent_vertices('Vancouver')
+# => #<Set: { 'Burnaby', 'Langley' }>
+
+graph.contains_edge?('Vancouver', 'Port Coquitlam')
+# => false
+
+graph.get_edge_weight('Vancouver', 'Port Coquitlam')
+# => Infinity
+
+graph.get_edge_weight('Vancouver', 'Burnaby')
+# => 10
 ```
 
 ## Development
