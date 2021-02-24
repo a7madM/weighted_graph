@@ -58,5 +58,15 @@ module WeightedGraph
       end
       Set.new(adjacent_array)
     end
+
+    # Returns a list of nodes of the graph
+    def nodes
+      nodes = []
+      @edges.each do |source, destinations|
+        nodes << source
+        nodes.concat(destinations.keys)
+      end
+      nodes.uniq
+    end
   end
 end

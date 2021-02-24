@@ -26,6 +26,9 @@ get_edge_weight(source, destination)
 
 # Returns the set of vertices v_i where edge (source, v_i) is in the graph
 get_adjacent_vertices(source)
+
+# Returns a list of nodes of the graph
+nodes()
 ```
 
 ## WeightedGraph::PositiveWeightedGraph API
