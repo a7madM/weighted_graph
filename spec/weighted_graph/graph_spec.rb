@@ -113,5 +113,16 @@ module WeightedGraph
         expect(adjacent_set.include?('A')).to be false
       end
     end
+
+    describe '.nodes' do
+      it 'returns nodes for graph with edges' do
+        @graph.add_edge('A', 'B', 5)
+        @graph.add_undirected_edge('A', 'C', 6)
+        expect(@graph.nodes).to eq(['A', 'B', 'C'])
+      end
+      it 'returns empty array for empty graphs' do
+        expect(@graph.nodes).to eq([])
+      end
+    end
   end
 end
